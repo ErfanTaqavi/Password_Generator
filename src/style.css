@@ -1,5 +1,47 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: burlywood;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+}
+.Container{
+ background-color: #24232a;
+ width: 19rem;
+ height: 25rem;
+
+    /* backdrop-filter: blur(10px); */
+}
+.Box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 7px;
+    padding: 7px;
+}
+.Title_range {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: space-between;
+}
+
+.Checkbox_frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Display_lvl{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between ;
+}
+
+.Progress_lvl{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+
 }
