@@ -29,29 +29,29 @@
                 <div class="Text_renge">Charactor Length</div>
                 <div class="Num_range">10</div>
               </div>
-              <input type="range" id="Input_range" />
+              <input type="range" id="Input_range"  class="Slider " min="1" max="10"/>
             </div>
             <div class="Checkbox_frame">
-              <div>
-                <input type="checkbox" id="Uppercase" />
-                <label for="Uppercase">Include Uppercase Letters</label>
-              </div>
-              <div>
-                <input type="checkbox" id="Lowercase" />
-                <label for="Lowercase">Include Lowercase Letters</label>
-              </div>
-              <div>
-                <input type="checkbox" id="Numbers" />
-                <label for="Numbers">Include Numbers Letters</label>
-              </div>
-              <div>
-                <input type="checkbox" id="Symbols" />
-                <label for="Symbols">Include Symbols Letters</label>
-              </div>
+              <label class="Checklist" for="Uppercase">Include Uppercase Letters
+                <input type="checkbox" checked="checked" id="Uppercase">
+                <span class="checkmark"></span>
+              </label>
+              <label class="Checklist" for="Lowercase">Include Lowercase Letters
+                <input type="checkbox" id="Lowercase">
+                <span class="checkmark"></span>
+              </label>
+              <label class="Checklist" for="Numbers">Include Numbers Letters
+                <input type="checkbox" id="Numbers">
+                <span class="checkmark"></span>
+              </label>
+              <label class="Checklist" for="Symbols">Include Symbols Letters
+                <input type="checkbox" id="Symbols">
+                <span class="checkmark"></span>
+              </label>
             </div>
             <div class="Display_lvl">
               <div>
-                <p>STERENGTH</p>
+                <p class="Sterength">STERENGTH</p>
               </div>
               <div class="Progress_lvl">
                 <div class="Title_lvl"><p>MEDIUM</p></div>
@@ -64,7 +64,7 @@
               </div>
             </div>
             <div class="Btn_generat">
-              <button id="Button_gen">GENERATE</button>
+              <button id="Button_gen" class="Generate">GENERATE</button>
             </div>
           </div>
         </div>
