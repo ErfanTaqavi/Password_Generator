@@ -26,7 +26,6 @@ align-items: center;
 }
 .Container{
  width: 21rem;
- height: 25rem;
  display: flex;
  gap: .5rem;
  flex-direction: column;
@@ -48,10 +47,11 @@ color: #646368;
 
     background-color: #24232a;
     margin: 5px;
-    padding: .75rem;
+    padding-left: .75rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 3rem;
 
 }
 .Password{
@@ -59,9 +59,23 @@ color: #646368;
     font-weight: bBreakPassword;
     margin-left: 5px;
     text-align: center;
+   
 }
+.Copy_logo{
+  width: 2rem;
+  height: 3rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+align-items: center;
+padding: 0;
+cursor: pointer;
+
+}
+
 .Copy_icon {
     fill:#67ee77;
+
 }
 .Title_range {
     display: flex ;
@@ -89,14 +103,14 @@ color: #646368;
   appearance: none;
   background: rgb(24, 23, 23);
   cursor: pointer ;
-  width: 15rem;
+  width: 100%;
   height: .35rem;
   margin-bottom: .75rem;
-
+  
 
   
 }
-.slider::-webkit-slider-thumb {
+.Slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: .75rem;
@@ -105,9 +119,9 @@ color: #646368;
     cursor: pointer;
     border-radius: 100%;
   }
-  input[type="range"]::-webkit-slider-runnable-track {
-    height: 0.5rem;
-  }
+
+
+ 
   
 
 .Checkbox_frame{
@@ -175,6 +189,7 @@ color: #646368;
     display: block;
   }
   
+  
   /* Style the checkmark/indicator */
   .Checklist .checkmark:after {
     left: 3px;
@@ -223,9 +238,9 @@ color: #646368;
     border: #ffffff 1px solid;
 }
 
-.Shape1,.Shape2{
+/* .Shape1,.Shape2{
     background-color: rgb(255, 136, 0) ;
-}
+} */
 
 .Generate {
     width: 100%;
