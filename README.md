@@ -21,7 +21,7 @@ This project presents a powerful password generator tool designed to craft secur
 ## Developer
 
 - Name: [Erfan Taqavi]
-- Contact: [Erfan.taghavi.6280@gmail.com]
+- Contact: [https://t.me/Erfan1178]
 
 - Short Biography: [Junior Frontend Developer]
 
