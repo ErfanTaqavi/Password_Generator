@@ -176,10 +176,10 @@ cursor: pointer;
     border: solid white 1px ;
   }
   
-  /* On mouse-over, add a grey background color */
+  /* On mouse-over, add a grey background color
   .Checklist:hover input ~ .checkmark {
     background-color: #ccc;
-  }
+  } */
   
   /* When the checkbox is checked, add a  background */
   .Checklist input:checked ~ .checkmark {
