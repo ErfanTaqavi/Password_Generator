@@ -108,13 +108,16 @@ let Symcase = 0;
 
 //func to copy in clipboard
 const Copy = Btn_copy.addEventListener("click", function () {
-  let copy = copytext.textContent;
-  // console.log(copy);
-  navigator.clipboard.writeText(copy);
-  alert("The password was copied");
-  
-  copytext.textContent = "Your Password";
+  if (FlagNull === true) {
+    let copy = copytext.textContent;
+    // console.log(copy);
+    navigator.clipboard.writeText(copy);
+    alert("The password was copied");
 
+    copytext.textContent = "Your Password";
+  } else {
+    alert("Password not Generated");
+  }
 });
 RangeNum = 8;
 Range.addEventListener("change", function () {
@@ -128,12 +131,11 @@ Range.addEventListener("change", function () {
 //   console.log(RangeNum);
 // });
 
-
 //func Update Ui
 function UIUpdate() {
   Range_text.textContent = 8;
-  RangeNum = 8
-  Range.value = 0
+  RangeNum = 8;
+  Range.value = 0;
   Title_lvl.textContent = " ";
   All_char = [];
   result = "";
@@ -190,7 +192,7 @@ function ClearF() {
   Numcase = 0;
   Symcase = 0;
   I_check = 0;
-  Flag = true 
+  Flag = true;
 }
 
 Uppercase.addEventListener("click", function (e) {
@@ -248,7 +250,10 @@ let result = "";
 //   return result
 // }
 let Flag = Boolean;
+let FlagNull = Boolean;
+
 Generate.addEventListener("click", function (e) {
+  index_Array = [];
   if (Upcase === 1) {
     All_char.push(UpAlphabet);
   }
@@ -263,12 +268,29 @@ Generate.addEventListener("click", function (e) {
   }
   if (Upcase !== 1 && Lowcase !== 1 && Numcase !== 1 && Symcase !== 1) {
     Flag = false;
+    FlagNull = false;
+  } else {
+    FlagNull = true;
   }
   // console.log(All_char.length, All_char);
   if (Flag) {
+    let previousIndex = -1;
     for (let i = 1; i <= RangeNum; i++) {
       let index = Math.floor(Math.random() * All_char.length);
-      // console.log(`index1 : ${index}`);
+      console.log(`index1 : ${index}`);
+      // console.log(All_char.length)
+      if (i === 1) {
+        previousIndex = index;
+      }
+      // console.log(index);
+      // console.log(previousIndex);
+      if (All_char.length !== 1) {
+      while (index === previousIndex) {
+        index = Math.floor(Math.random() * All_char.length);
+
+      }}
+      previousIndex = index;
+
 
       for (let j = 0; j < 1; j++) {
         let index2 = Math.floor(Math.random() * All_char[index].length);
@@ -281,10 +303,10 @@ Generate.addEventListener("click", function (e) {
   if (Flag) {
     copytext.textContent = result;
   } else {
-    console.log(I_check)
-    console.log(Flag)
+    console.log(I_check);
+    console.log(Flag);
     Flag = true;
     copytext.textContent = "select any input from the list";
   }
-  UIUpdate()
+  UIUpdate();
 });

@@ -16,6 +16,12 @@ body{
     font-weight: bBreakPassword;
 
 }
+@font-face {
+  font-family:Dash-Horizon ;
+  src: url(../fonts/Dash-Horizon-Demo.otf);
+  font-weight: Dash-Horizon;
+
+}
   
  
 
@@ -55,9 +61,12 @@ color: #646368;
 
 }
 .Password{
-    font-family: bBreakPassword;
-    font-weight: bBreakPassword;
+    font-family: Dash-Horizon;
+    font-weight: Dash-Horizon;
+    font-size: larger;
     margin-left: 5px;
+    margin-bottom: .75rem;
+    letter-spacing: 2px;
     text-align: center;
    
 }
