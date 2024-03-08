@@ -8,7 +8,7 @@ const Lowercase = document.getElementById("Lowercase");
 const Numbers = document.getElementById("Numbers");
 const Symbols = document.getElementById("Symbols");
 const Title_lvl = document.querySelector(".Title_lvl");
-
+const AllShapes = document.querySelectorAll(".Shape");
 let RangeNum;
 let I_check = 0;
 let Sterength_range = 0;
@@ -109,13 +109,15 @@ let Symcase = 0;
 //func to copy in clipboard
 const Copy = Btn_copy.addEventListener("click", function () {
   let copy = copytext.textContent;
-  console.log(copy);
+  // console.log(copy);
   navigator.clipboard.writeText(copy);
-  alert("copy :" + copy);
-});
-RangeNum = 4
-Range.addEventListener("change", function () {
+  alert("The password was copied");
+  
+  copytext.textContent = "Your Password";
 
+});
+RangeNum = 8;
+Range.addEventListener("change", function () {
   RangeNum = Math.floor(((Range.value / 100) * 10 + 2) * 2);
   Range_text.textContent = RangeNum;
 });
@@ -126,11 +128,40 @@ Range.addEventListener("change", function () {
 //   console.log(RangeNum);
 // });
 
+
+//func Update Ui
+function UIUpdate() {
+  Range_text.textContent = 8;
+  RangeNum = 8
+  Range.value = 0
+  Title_lvl.textContent = " ";
+  All_char = [];
+  result = "";
+  Flag = false;
+  ClearF();
+  // console.dir(document.querySelectorAll(".checkbox"));
+  let nodeCheckbox = document.querySelectorAll(".checkbox");
+  for (const key in nodeCheckbox) {
+    // console.log(nodeCheckbox[key]);
+    nodeCheckbox[key].checked = false;
+  }
+  // console.dir(AllShapes);
+  for (const key in AllShapes) {
+    // console.log(AllShapes.hasOwnProperty(key));
+    if (AllShapes.hasOwnProperty(key)) {
+      const shape = AllShapes[key];
+      if (shape) {
+        shape.style.background = "transparent";
+      }
+    }
+  }
+}
+
 // Function to update background colors based on I_check value
 function updateShapes(I_check) {
   for (var j = 1; j <= I_check; j++) {
     var shapeElement = document.querySelector(`.Shape${j}`);
-    console.log(shapeElement); // Check if the element is selected
+    // console.log(shapeElement); // Check if the element is selected
     if (shapeElement) {
       shapeElement.style.background = "rgb(255, 136, 0)";
     } else {
@@ -153,12 +184,22 @@ function updateShapes(I_check) {
   }
 }
 
+function ClearF() {
+  Upcase = 0;
+  Lowcase = 0;
+  Numcase = 0;
+  Symcase = 0;
+  I_check = 0;
+  Flag = true 
+}
+
 Uppercase.addEventListener("click", function (e) {
   if (e.target.checked) {
     I_check += 1;
     Upcase += 1;
   } else {
     I_check -= 1;
+    Upcase -= 1;
   }
   updateShapes(I_check);
 });
@@ -169,6 +210,7 @@ Lowercase.addEventListener("click", function (e) {
     Lowcase += 1;
   } else {
     I_check -= 1;
+    Lowcase -= 1;
   }
   updateShapes(I_check);
 });
@@ -179,6 +221,7 @@ Numbers.addEventListener("click", function (e) {
     Numcase += 1;
   } else {
     I_check -= 1;
+    Numcase -= 1;
   }
   updateShapes(I_check);
 });
@@ -189,6 +232,7 @@ Symbols.addEventListener("click", function (e) {
     Symcase += 1;
   } else {
     I_check -= 1;
+    Symcase -= 1;
   }
   updateShapes(I_check);
 });
@@ -197,44 +241,50 @@ let result = "";
 // function Random_char() {
 //   let resultLength = RangeNum
 //   for (let i = 0; i < resultLength; i++) {
-//     let index = (Math.floor(Math.random()*All_char.length) ) 
+//     let index = (Math.floor(Math.random()*All_char.length) )
 //     result += All_char[index] ;
 
 //   }
 //   return result
 // }
-
+let Flag = Boolean;
 Generate.addEventListener("click", function (e) {
   if (Upcase === 1) {
-    for (var i = 0; i < UpAlphabet.length; i++) {
-      All_char.push(UpAlphabet[i])
-    }
+    All_char.push(UpAlphabet);
   }
   if (Lowcase === 1) {
-    for (var i = 0; i < LowAlphabet.length; i++) {
-      All_char.push(LowAlphabet[i])
-    }  }
+    All_char.push(LowAlphabet);
+  }
   if (Numcase === 1) {
-    for (var i = 0; i < Numbers.length; i++) {
-      All_char.push(Numbers[i])
-    }  }
+    All_char.push(Numeic);
+  }
   if (Symcase === 1) {
-    for (var i = 0; i < Special_Char.length; i++) {
-      All_char.push(Special_Char[i])
-    }  }if(Upcase !== 1 &&Lowcase !== 1 && Numcase !== 1 && Symcase !== 1) {
-      alert("Please select at least one input from the list")
-      
+    All_char.push(Special_Char);
+  }
+  if (Upcase !== 1 && Lowcase !== 1 && Numcase !== 1 && Symcase !== 1) {
+    Flag = false;
+  }
+  // console.log(All_char.length, All_char);
+  if (Flag) {
+    for (let i = 1; i <= RangeNum; i++) {
+      let index = Math.floor(Math.random() * All_char.length);
+      // console.log(`index1 : ${index}`);
+
+      for (let j = 0; j < 1; j++) {
+        let index2 = Math.floor(Math.random() * All_char[index].length);
+        // console.log(index2);
+        result += All_char[index][index2];
+        // console.log(result)
+      }
     }
-  console.log(All_char.length,All_char);
-
-  for (let i = 1; i <=RangeNum; i++) {
-    let index = (Math.floor(Math.random()*All_char.length) ) 
-    console.log(index)
-    result += All_char[index] ;
-    console.log(result)
-}
-
-copytext.textContent = result
+  }
+  if (Flag) {
+    copytext.textContent = result;
+  } else {
+    console.log(I_check)
+    console.log(Flag)
+    Flag = true;
+    copytext.textContent = "select any input from the list";
+  }
+  UIUpdate()
 });
-
-
