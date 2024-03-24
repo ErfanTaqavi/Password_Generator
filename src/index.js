@@ -9,6 +9,9 @@ const Numbers = document.getElementById("Numbers");
 const Symbols = document.getElementById("Symbols");
 const Title_lvl = document.querySelector(".Title_lvl");
 const AllShapes = document.querySelectorAll(".Shape");
+const Generator_box = document.querySelector(".Generator_box");
+
+
 let RangeNum;
 let I_check = 0;
 let Sterength_range = 0;
@@ -112,9 +115,14 @@ const Copy = Btn_copy.addEventListener("click", function () {
     let copy = copytext.textContent;
     // console.log(copy);
     navigator.clipboard.writeText(copy);
-    alert("The password was copied");
+    Generator_box.classList.add("active")
+    copytext.textContent = "YOUR PASSWORD WAS COPIED";
+    setInterval(() => {
+      Generator_box.classList.remove("active")
+      copytext.textContent = "Your Password";
 
-    copytext.textContent = "Your Password";
+    }, 3000);
+
   } else {
     alert("Password not Generated");
   }
