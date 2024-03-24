@@ -179,13 +179,14 @@ cursor: pointer;
   /* On mouse-over, add a grey background color
   .Checklist:hover input ~ .checkmark {
     background-color: #ccc;
-  } */
-  
   /* When the checkbox is checked, add a  background */
   .Checklist input:checked ~ .checkmark {
     background:#67ee77;
   }
-  
+  input:focus{
+    outline: none;
+
+  }
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
     content: "";
